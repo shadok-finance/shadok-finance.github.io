@@ -1,5 +1,12 @@
 # dependencies
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 /node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
 
 # gatsby
 .cache/
@@ -7,6 +14,13 @@ public/
 
 # misc
 .DS_Store
+.env*
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log\*
+yarn-error.log*
 
 # ide
 .idea
