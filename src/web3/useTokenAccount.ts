@@ -16,7 +16,7 @@ export const useTokenAccount = (
     Maybe.nothing(),
   );
 
-  const updateAccount = React.useCallback(() => {
+  const updateAccount = React.useCallback(async () => {
     web3.match({
       Ok: async (web3Provider) => {
         try {
@@ -32,6 +32,7 @@ export const useTokenAccount = (
       },
       Err: () => {
         setTokenAccount(Maybe.nothing);
+        return Promise.resolve();
       },
     });
   }, [web3]);

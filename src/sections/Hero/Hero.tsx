@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { styled } from "@/uikit";
 import { Countdown, TwoColWrapper, Button, Balance } from "@/uikit/components";
 import { Buttons, Text, Image } from "@/uikit/components/TextAndImage";
@@ -43,11 +44,18 @@ export const Hero = () => {
     [account],
   );
 
-  const refreshData = () => {
-    refreshAccount();
-    updateC999Supply();
-    updateSolInGulp();
-  };
+  const refreshData = React.useCallback(async () => {
+    await refreshAccount();
+    await updateC999Supply();
+    await updateSolInGulp();
+  }, [refreshAccount, updateSolInGulp, updateC999Supply]);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      refreshData();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [refreshData]);
 
   return (
     <Container id="hero">
@@ -77,7 +85,7 @@ export const Hero = () => {
             <MintProcessButton
               onTokenAccountCreated={refreshData}
               onCoinsMinted={refreshData}
-              onError={console.error}
+              onError={(err) => toast.error(`${err.name}: ${err.message}`)}
               disabled={web3.isErr}
               c999AmountForOneSol={c999AmountForOneSol}
             />

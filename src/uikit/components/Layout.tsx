@@ -117,6 +117,14 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+
+  .Toastify__toast {
+    font-family: Josefin Sans !important;
+  }
+
+  .Toastify__progress-bar {
+    background-color: ${(props) => props.theme.palette.FadedOrange} !important;
+  }
 `;
 
 export const Layout: React.FC = ({ children }) => (

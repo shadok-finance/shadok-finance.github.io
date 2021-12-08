@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import { injectStyle } from "react-toastify/dist/inject-style";
 import { Layout, Footer } from "@/uikit/components";
 import { Header, MenuElement } from "@/sections/Header";
 import { Hero, About, Roadmap, Faq, Community } from "@/sections";
@@ -15,6 +17,10 @@ const menuElements: MenuElement[] = [
   { label: "Community", url: "#community" },
 ];
 
+if (typeof window !== "undefined") {
+  injectStyle();
+}
+
 export default function Home() {
   return (
     <main>
@@ -22,6 +28,7 @@ export default function Home() {
         <Web3Provider>
           <Web3ContextWrapper>
             <UserTokenAccountContextWrapper>
+              <ToastContainer />
               <Header elements={menuElements} />
               <Hero />
               <About />
