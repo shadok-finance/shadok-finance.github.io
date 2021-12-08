@@ -42,7 +42,7 @@ export const Faq = () => (
     <div>
       <h3>Frequently Asked Questions</h3>
       <p>
-        You may ask yourself a couple of questions if you discover the Shadok
+        You may ask yourself a couple of questions if you discover the Shadoks
         for the first time.
       </p>
       <Accordion>
@@ -58,13 +58,13 @@ export const Faq = () => (
           C999 from the secondary market.
         </Accordion.Item>
         <Accordion.Item id={2} label="Is this a pyramid scheme?">
-          The Gulp is a solid prison, you can observe all the emprisonned SOL
-          tokens in there{" "}
+          The Gulp is a solid prison, you can observe all the imprisoned SOL
+          tokens in it{" "}
           <a href="https://solscan.io/account/TheGu1p111111111111111111111111111111111111">
             {" "}
             here
           </a>
-          . A such, the C999 value only relies on the belief that Shadoks are
+          . As such, the C999 value only relies on the belief that Shadoks are
           here to stay and no one will ever be able to claim any SOL back.
         </Accordion.Item>
         <Accordion.Item id={3} label="What are the Shadoks?">
@@ -73,8 +73,8 @@ export const Faq = () => (
             {" "}
             Wikipedia article
           </a>
-          . In a world full of cats and dogs, we are convince that Shadoks are a
-          civilisation deserving some attention.
+          . In a world full of cats and dogs, we are convinced that Shadoks are
+          a civilisation deserving some attention.
         </Accordion.Item>
       </Accordion>
     </div>

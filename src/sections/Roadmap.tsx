@@ -71,7 +71,7 @@ export const Roadmap = () => (
             Pump It Up
           </>
         }
-        text="Absolutely. Shadoks will pump... foever."
+        text="Absolutely. Shadoks will pump... forever."
       />
     </Row>
     <Image src={pumpItUp} alt="roadmap" />

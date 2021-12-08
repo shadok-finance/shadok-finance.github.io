@@ -24,7 +24,7 @@ export const About = () => (
     <TextAndImage
       id="tokenomics"
       header="C999 Tokenomics"
-      text="Every week, the minting price of C999 will double as the result of the continous pumping of the Shadoks. The collected $SOL token from the minting operations are sent to a Gulp, which is essentially a prison for undesirables. If the Gulp address is known (TheGu1p111111111111111111111111111111111111), unfortunately no ones knows the key to it."
+      text="Every week, the minting price of C999 will double as the result of the continous pumping of the Shadoks. The collected $SOL token from the minting operations are sent to a Gulp, which is essentially a prison for undesirables. The Gulp address is known (TheGu1p111111111111111111111111111111111111), but unfortunately no one has access to the key."
       actions={[]}
       imageSrc={tokenomics}
       imageAlt="tokenomics"
