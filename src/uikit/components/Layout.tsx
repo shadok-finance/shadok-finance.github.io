@@ -66,7 +66,11 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 300;
       margin: 0 0 ${(props) => props.theme.spacing.M};
     }
-  ;
+
+    a {
+      color: ${(props) => props.theme.palette.FadedOrange};
+      text-decoration: none;
+    }
   }
 
   main {
