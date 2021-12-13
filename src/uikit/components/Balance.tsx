@@ -5,7 +5,7 @@ import c999Icon from "@/assets/icons/c999.svg";
 
 const BalanceContainer = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: ${({ theme }) => theme.spacing.base};
 
   img {

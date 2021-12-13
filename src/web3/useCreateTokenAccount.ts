@@ -42,7 +42,7 @@ export const useCreateTokenAccount = (
         try {
           const hash = await toast.promise(createAcc(), {
             pending: "Creating C999 account!",
-            error: "Failed to createn a C999 acount",
+            error: "Failed to create a C999 acount",
             success: "C999 account created",
           });
           onAccountCreated(hash);
