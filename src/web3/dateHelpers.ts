@@ -15,7 +15,9 @@ const MILIS_PER_WEEK = MILIS_PER_SEC.mul(SEC_PER_MIN)
 export const nowTimestamp = () => new Big(Date.now());
 
 export const calculateNumberOfWeeksToNow = (genesisTimestamp: Big): number =>
-  nowTimestamp().sub(genesisTimestamp).div(MILIS_PER_WEEK).round(0).toNumber();
+  Math.floor(
+    nowTimestamp().sub(genesisTimestamp).div(MILIS_PER_WEEK).toNumber(),
+  );
 
 export const calculateNextPriceDoubling = (genesisTimestamp: Big): Date => {
   const weeksPassed = calculateNumberOfWeeksToNow(genesisTimestamp);
