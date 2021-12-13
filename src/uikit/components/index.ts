@@ -8,3 +8,4 @@ export * from "./Accordion";
 export * from "./Balance";
 export * from "./TwoColWrapper";
 export * from "./MintAmountModal";
+export * from "./CurrentPrice";
