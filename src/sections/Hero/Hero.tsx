@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { styled } from "@/uikit";
 import { Countdown, TwoColWrapper, Button, Balance } from "@/uikit/components";
 import { Buttons, Text, Image } from "@/uikit/components/TextAndImage";
@@ -8,7 +9,6 @@ import { UserTokenAccountContext } from "@/web3/UserTokenAccountContext";
 import { MintProcessButton } from "@/sections/Hero/MintProcessButton";
 import { useTotalMemecoinSupply } from "@/web3/useTotalMemecoinSupply";
 import { useTotalGulpSupply } from "@/web3/useTotalGulpSupply";
-import { Web3Context } from "@/web3/Web3Context";
 import { useC999AmountForOneSol } from "@/web3/useC999AmountForOneSol";
 import { useNextPriceDoubling } from "@/web3/useNextPriceDoubling";
 
@@ -32,7 +32,7 @@ const BalancesWrapper = styled.div`
 `;
 
 export const Hero = () => {
-  const web3 = React.useContext(Web3Context);
+  const wallet = useWallet();
   const [account, refreshAccount] = React.useContext(UserTokenAccountContext);
   const [c999Supply, updateC999Supply] = useTotalMemecoinSupply();
   const [solInGulp, updateSolInGulp] = useTotalGulpSupply();
@@ -87,7 +87,7 @@ export const Hero = () => {
               onTokenAccountCreated={refreshData}
               onCoinsMinted={refreshData}
               onError={(err) => toast.error(`${err.name}: ${err.message}`)}
-              disabled={web3.isErr}
+              disabled={!wallet.connected}
               c999AmountForOneSol={c999AmountForOneSol}
             />
             <Button

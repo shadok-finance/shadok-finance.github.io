@@ -9,11 +9,8 @@ export const useWeb3Provider = (): Maybe<Provider> => {
 
   return React.useMemo(
     () =>
-      wallet.connected
-        ? Maybe.just(
-            new Provider(connection, wallet, Provider.defaultOptions()),
-          )
-        : Maybe.nothing(),
+      Maybe.just(new Provider(connection, wallet, Provider.defaultOptions())),
+
     [connection, wallet],
   );
 };
