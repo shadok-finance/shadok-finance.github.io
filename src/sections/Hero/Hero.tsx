@@ -1,7 +1,13 @@
 import React from "react";
 import { toast } from "react-toastify";
 import { styled } from "@/uikit";
-import { Countdown, TwoColWrapper, Button, Balance } from "@/uikit/components";
+import {
+  Countdown,
+  TwoColWrapper,
+  Button,
+  Balance,
+  CurrentPrice,
+} from "@/uikit/components";
 import { Buttons, Text, Image } from "@/uikit/components/TextAndImage";
 import hero from "@/assets/img/hero.svg";
 import { UserTokenAccountContext } from "@/web3/UserTokenAccountContext";
@@ -64,6 +70,9 @@ export const Hero = () => {
         <Text hasActions size="large">
           {nextPriceDoubling
             .map((halvingDate) => <Countdown deadline={halvingDate} />)
+            .unwrapOr(<></>)}
+          {c999AmountForOneSol
+            .map((price) => <CurrentPrice priceForOneSol={price.toNumber()} />)
             .unwrapOr(<></>)}
           <h1>Better Get Minting</h1>
           {tokenBalance
