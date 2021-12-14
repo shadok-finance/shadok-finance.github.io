@@ -39,7 +39,7 @@ export const Roadmap = () => (
     <Image src={roadmap} alt="roadmap" />
     <Paragraph
       header="Roadmap"
-      text="Shadocks put all their 4 neurons at work for creating this protocol, learn more."
+      text="Shadoks put all their 4 neurons at work for creating this protocol, learn more."
       size="large"
     />
     <Row>
