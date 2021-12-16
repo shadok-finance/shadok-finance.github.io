@@ -70,7 +70,7 @@ export const Footer: React.FC = () => (
           <img src={medium} alt="Medium" />
         </SocialMediaIcon>
         <SocialMediaIcon
-          href="https://twitter.com/shadokfinance"
+          href="https://twitter.com/shadok_C999"
           target="_blank"
         >
           <img src={twitter} alt="Twitter" />
