@@ -15,11 +15,21 @@ const calculatePriceForOneSolForGenesisTimestamp = (genesisTimestamp: Big) => {
   return INITIAL_C999_PER_SOL.div(new Big(2).pow(weeksPassed));
 };
 
-export const useC999AmountForOneSol = (): Maybe<Big> => {
+export const useC999AmountForOneSol = (): [Maybe<Big>, () => void] => {
   const genesisTimestamp = useGenesisTimestamp();
+  const [c999AmountForOneSol, setC999AmountForOneSol] = React.useState<
+    Maybe<Big>
+  >(Maybe.nothing());
 
-  return React.useMemo(
-    () => genesisTimestamp.map(calculatePriceForOneSolForGenesisTimestamp),
-    [genesisTimestamp],
-  );
+  const updateC999AmountForOneSol = () => {
+    setC999AmountForOneSol(
+      genesisTimestamp.map(calculatePriceForOneSolForGenesisTimestamp),
+    );
+  };
+
+  React.useEffect(() => {
+    updateC999AmountForOneSol();
+  }, [genesisTimestamp]);
+
+  return [c999AmountForOneSol, updateC999AmountForOneSol];
 };

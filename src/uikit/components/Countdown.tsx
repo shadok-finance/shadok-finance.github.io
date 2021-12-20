@@ -85,7 +85,8 @@ const calculateCountdownState =
     };
   };
 
-const formatCountdownValue = (value: number) => numbro(value).format("00");
+const formatCountdownValue = (value: number) =>
+  numbro(Math.max(0, value)).format("00");
 export const Countdown = ({ deadline }: Props) => {
   const [countdownState, setCountdownState] = React.useState<State>(
     calculateCountdownState(deadline)(new Date()),

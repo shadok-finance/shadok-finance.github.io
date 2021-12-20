@@ -42,8 +42,9 @@ export const Hero = () => {
   const [account, refreshAccount] = React.useContext(UserTokenAccountContext);
   const [c999Supply, updateC999Supply] = useTotalMemecoinSupply();
   const [solInGulp, updateSolInGulp] = useTotalGulpSupply();
-  const c999AmountForOneSol = useC999AmountForOneSol();
-  const nextPriceDoubling = useNextPriceDoubling();
+  const [c999AmountForOneSol, updateC999AmountForOneSol] =
+    useC999AmountForOneSol();
+  const [nextPriceDoubling, updateNextPriceDoubling] = useNextPriceDoubling();
 
   const tokenBalance = React.useMemo(
     () =>
@@ -64,12 +65,30 @@ export const Hero = () => {
     return () => clearInterval(interval);
   }, [refreshData]);
 
+  const checkPriceDoubling = React.useCallback(() => {
+    if (
+      nextPriceDoubling
+        .map((doublingDate) => doublingDate < new Date())
+        .unwrapOr(false)
+    ) {
+      updateNextPriceDoubling();
+      updateC999AmountForOneSol();
+    }
+  }, [updateNextPriceDoubling, updateC999AmountForOneSol]);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      checkPriceDoubling();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [checkPriceDoubling]);
+
   return (
     <Container id="hero">
       <TwoColWrapper>
         <Text hasActions size="large">
           {nextPriceDoubling
-            .map((halvingDate) => <Countdown deadline={halvingDate} />)
+            .map((doublingDate) => <Countdown deadline={doublingDate} />)
             .unwrapOr(<></>)}
           {c999AmountForOneSol
             .map((price) => <CurrentPrice priceForOneSol={price.toNumber()} />)

@@ -19,7 +19,10 @@ export const CurrentPrice = ({ priceForOneSol }: Props) =>
   priceForOneSol > 0 && (
     <Container>
       <span>
-        Current price: $SOL 1 = $C999 {priceForOneSol.toLocaleString()}
+        Current price: $SOL 1 = $C999{" "}
+        {priceForOneSol.toLocaleString(undefined, {
+          maximumSignificantDigits: 5,
+        })}
       </span>
     </Container>
   );
