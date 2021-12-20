@@ -74,7 +74,7 @@ export const Hero = () => {
       updateNextPriceDoubling();
       updateC999AmountForOneSol();
     }
-  }, [updateNextPriceDoubling, updateC999AmountForOneSol]);
+  }, [nextPriceDoubling, updateNextPriceDoubling, updateC999AmountForOneSol]);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
