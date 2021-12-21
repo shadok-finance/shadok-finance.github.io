@@ -6,6 +6,8 @@ import medium from "@/assets/icons/social_medium.svg";
 import twitter from "@/assets/icons/social_twitter.svg";
 import figma from "@/assets/icons/social_figma.svg";
 import github from "@/assets/icons/social_github.svg";
+import telegram from "@/assets/icons/social_telegram.svg";
+import raydium from "@/assets/icons/social_raydium.svg";
 
 const Container = styled.footer`
   background-color: ${({ theme }) => theme.palette.White};
@@ -53,16 +55,6 @@ export const Footer: React.FC = () => (
     <div>
       <Logo src={logo} alt="logo" />
       <SocialMedia>
-        {/* TODO: add social media links */}
-        {/*        <SocialMediaIcon href="#" target="_blank">
-          <img src={telegram} alt="Telegram" />
-        </SocialMediaIcon>
-        <SocialMediaIcon href="#" target="_blank">
-          <img src={discord} alt="Discord" />
-        </SocialMediaIcon>
-        <SocialMediaIcon href="#" target="_blank">
-          <img src={reddit} alt="Reddit" />
-        </SocialMediaIcon> */}
         <SocialMediaIcon
           href="https://medium.com/@shadok.finance"
           target="_blank"
@@ -83,6 +75,15 @@ export const Footer: React.FC = () => (
           target="_blank"
         >
           <img src={github} alt="Github" />
+        </SocialMediaIcon>
+        <SocialMediaIcon href="https://t.me/shadokofficial" target="_blank">
+          <img src={telegram} alt="Telegram" />
+        </SocialMediaIcon>
+        <SocialMediaIcon
+          href="https://raydium.io/swap/?from=11111111111111111111111111111111&to=HC9qZTgTYf12cFPaK3dK2HZJ9M47r2JenrsvQ1Ewnds8"
+          target="_blank"
+        >
+          <img src={raydium} alt="Raydium" />
         </SocialMediaIcon>
       </SocialMedia>
     </div>
