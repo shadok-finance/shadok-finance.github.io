@@ -17,6 +17,7 @@ import { useTotalMemecoinSupply } from "@/web3/useTotalMemecoinSupply";
 import { useTotalGulpSupply } from "@/web3/useTotalGulpSupply";
 import { useC999AmountForOneSol } from "@/web3/useC999AmountForOneSol";
 import { useNextPriceDoubling } from "@/web3/useNextPriceDoubling";
+import { noop } from "@/util/other";
 
 const Container = styled.section`
   display: flex;
@@ -66,14 +67,15 @@ export const Hero = () => {
   }, [refreshData]);
 
   const checkPriceDoubling = React.useCallback(() => {
-    if (
-      nextPriceDoubling
-        .map((doublingDate) => doublingDate < new Date())
-        .unwrapOr(false)
-    ) {
-      updateNextPriceDoubling();
-      updateC999AmountForOneSol();
-    }
+    nextPriceDoubling.match({
+      Just: (doublingDate) => {
+        if (doublingDate < new Date()) {
+          updateNextPriceDoubling();
+          updateC999AmountForOneSol();
+        }
+      },
+      Nothing: noop,
+    });
   }, [nextPriceDoubling, updateNextPriceDoubling, updateC999AmountForOneSol]);
 
   React.useEffect(() => {
