@@ -39,7 +39,7 @@ export const Community = () => (
           {
             buttonText: "Follow Now",
             link: {
-              href: "https://twitter.com/shadokfinance",
+              href: "https://twitter.com/shadokfi",
               target: "blank",
             },
           },
